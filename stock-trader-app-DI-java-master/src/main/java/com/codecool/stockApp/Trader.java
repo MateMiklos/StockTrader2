@@ -17,7 +17,6 @@ public class Trader {
 //    }
 
 	private Logger logger;
-
 	private StockAPIService stockService;
 
 	public Trader(Logger logger, StockAPIService stockAPIService) {

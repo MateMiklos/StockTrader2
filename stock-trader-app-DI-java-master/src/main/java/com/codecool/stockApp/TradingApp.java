@@ -10,10 +10,19 @@ public class TradingApp {
 
 	private Trader trader;
 	private Logger logger;
+	private StockAPIService stockAPIService;
+	private RemoteURLReader remoteURLReader;
 
 	public static void main(String[] args) {
 	    TradingApp app = new TradingApp();
 	    app.start();
+	}
+
+	public TradingApp() {
+		this.remoteURLReader = new RemoteURLReader();
+		this.stockAPIService = new StockAPIService(remoteURLReader);
+		this.logger = new Logger();
+		this.trader = new Trader(logger, stockAPIService);
 	}
 
 	public void start() {
